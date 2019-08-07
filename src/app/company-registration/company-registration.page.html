@@ -33,16 +33,15 @@
 		<ion-item>
 		    <ion-label>No Of Employees</ion-label>
 		    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-		      <ion-select-option value="brown">Brown</ion-select-option>
-		      <ion-select-option value="blonde">Blonde</ion-select-option>
-		      <ion-select-option value="black">Black</ion-select-option>
-		      <ion-select-option value="red">Red</ion-select-option>
+		      <ion-select-option *ngFor = "let item of employeeSizes" [value]="item.id">{{item.size}}</ion-select-option>
+		      
 		    </ion-select>
 		  </ion-item>
           </div>
           <div padding>
-            <ion-button  size="large" type="submit" expand="block" (click)="register()">Register</ion-button>
-            <ion-button  size="large" type="submit" expand="block" routerLink = "/company-login" (click)="register()">Already Register !! Login</ion-button>
+
+  <ion-button  size="large" type="submit" expand="block" (click)="doRegister()">Register</ion-button>
+            <ion-button  size="large" type="submit" expand="block" routerLink = "/company-login">Already Register !! Login</ion-button>
           </div>
         </ion-col>
       </ion-row>

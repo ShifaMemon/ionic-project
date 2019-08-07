@@ -9,6 +9,7 @@ import { ApiService } from '../api.service';
 export class CompanyRegistrationPage implements OnInit {
 
   employeeSizes = [];
+  registerations = [];
 
   constructor(
     private apiService : ApiService
@@ -16,6 +17,7 @@ export class CompanyRegistrationPage implements OnInit {
 
   ngOnInit() {
     this.getEmpSize()
+    this.doRegister()
   }
 
   getEmpSize(){
@@ -24,5 +26,15 @@ export class CompanyRegistrationPage implements OnInit {
           this.employeeSizes = res.data;
         }
     })
+  }
+  doRegister()
+  {
+
+    this.apiService.companyRegister().subscribe((res : any) => {
+      if(res.status){
+        this.registerations = res.data;
+      }
+  })
+
   }
 }

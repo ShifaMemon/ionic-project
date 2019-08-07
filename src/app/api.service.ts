@@ -14,4 +14,12 @@ export class ApiService {
   employeeCountList(){
     return this.HttpClient.get(this.baseUrl + "employeeCountList");
   }
+  companyLogin()
+  {
+    return this.HttpClient.get(this.baseUrl + "login");
+  }
+  companyRegister()
+  {
+    return this.HttpClient.get(this.baseUrl + "register");
+  }
 }

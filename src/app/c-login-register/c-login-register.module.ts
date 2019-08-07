@@ -23,4 +23,4 @@ const routes: Routes = [
   ],
   declarations: [CLoginRegisterPage]
 })
-export class CLoginRegisterPageModule {}
+export class CLoginRegisterPageModule{}

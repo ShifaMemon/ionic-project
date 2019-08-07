@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'company-department', loadChildren: './company-department/company-department.module#CompanyDepartmentPageModule' },
   { path: 'company-employees', loadChildren: './company-employees/company-employees.module#CompanyEmployeesPageModule' },
   { path: 'company-feedback', loadChildren: './company-feedback/company-feedback.module#CompanyFeedbackPageModule' },
-  //{ path: 'client-selection', loadChildren: './client-selection/client-selection.module#ClientSelectionPageModule' }
+  { path: 'client-selection', loadChildren: './client-selection/client-selection.module#ClientSelectionPageModule' }
 ];
 
 @NgModule({
