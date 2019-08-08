@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+const TOKEN_KEY = 'auth-token';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,18 +10,21 @@ export class ApiService {
 
   baseUrl = "http://localhost/temp/public/index.php/api/";
   constructor(
-    private HttpClient : HttpClient
+    private HttpClient : HttpClient,
+    
   ) { }
+
+  
 
   employeeCountList(){
     return this.HttpClient.get(this.baseUrl + "employeeCountList");
   }
-  companyLogin()
+  companyLogin(data)
   {
-    return this.HttpClient.get(this.baseUrl + "login");
+    return this.HttpClient.post(this.baseUrl + "login",data);
   }
-  companyRegister()
+  companyRegister(data)
   {
-    return this.HttpClient.get(this.baseUrl + "register");
+    return this.HttpClient.post(this.baseUrl + "registration",data);
   }
 }

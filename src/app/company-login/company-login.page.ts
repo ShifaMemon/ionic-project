@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { logging } from 'protractor';
+import { ApiService } from '../api.service';
+import { IonicStorageModule } from '@ionic/storage';
 
 @Component({
   selector: 'app-company-login',
@@ -8,16 +9,30 @@ import { logging } from 'protractor';
 })
 export class CompanyLoginPage implements OnInit {
 
-  username = "";
+  email = "";
   password = "";
-  constructor() { }
+  
+  login = [];
+  constructor(private apiService : ApiService) { }
 
   ngOnInit() {
+    this.doLogin()
   }
-    login()
+    /* login()
     {
-      alert(this.username);
-    }
+      alert(this.email);
+    } */
+doLogin(){
 
-
+  var data = 
+  {
+    email : this.email,
+    password : this.password,
+  }
+  this.apiService.companyLogin(data).subscribe((res : any) => {
+    if(res.status){
+      this.login = res.data;
+    }})
+  }
 }
+

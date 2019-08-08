@@ -6,7 +6,7 @@
 
 <ion-content>
 
-		<form  #form="ngForm">
+		<form  #form="ngForm" method="POST">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -15,24 +15,24 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-input  name="cnm" type="text" placeholder="Comapany Name" ngModel required></ion-input>
+              <ion-input  name="comp_nm" type="text" placeholder="Comapany Name" [(ngModel)]="comp_nm" required></ion-input>
             </ion-item>
 	    <ion-item>
-              <ion-input name="pass" type="password" placeholder="Company Password" ngModel required></ion-input>
+              <ion-input name="password" type="password" placeholder="Company Password" [(ngModel)]="password" required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+              <ion-input name="email" type="email" placeholder="your@email.com" [(ngModel)]="email" required></ion-input>
             </ion-item>
             
             <ion-item>
-              <ion-input  name="cadd" type="text" placeholder="Comapany Address" ngModel required></ion-input>
+              <ion-input  name="comp_address" type="text" placeholder="Comapany Address" [(ngModel)] = "comp_address" required></ion-input>
             </ion-item>
 	    <ion-item>
-              <ion-input  name="cmno" type="text" placeholder="Comapny Mobile Number" ngModel required></ion-input>
+              <ion-input  name="comp_cno" type="text" placeholder="Comapny Mobile Number" [(ngModel)] = "comp_cno" required></ion-input>
             </ion-item>
 		<ion-item>
 		    <ion-label>No Of Employees</ion-label>
-		    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+		    <ion-select name = "no_emp" value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)] = "no_emp" >
 		      <ion-select-option *ngFor = "let item of employeeSizes" [value]="item.id">{{item.size}}</ion-select-option>
 		      
 		    </ion-select>
@@ -40,7 +40,7 @@
           </div>
           <div padding>
 
-  <ion-button  size="large" type="submit" expand="block" (click)="doRegister()">Register</ion-button>
+  <ion-button  size="large" type="submit" expand="block" (click)="doRegister()" routerLink = "/company-deshboard">Register</ion-button>
             <ion-button  size="large" type="submit" expand="block" routerLink = "/company-login">Already Register !! Login</ion-button>
           </div>
         </ion-col>

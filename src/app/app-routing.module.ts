@@ -29,7 +29,7 @@ const routes: Routes = [
   
   { path: 'employee-login', loadChildren: './employee-login/employee-login.module#EmployeeLoginPageModule' },
   { path: 'employee-registration', loadChildren: './employee-registration/employee-registration.module#EmployeeRegistrationPageModule' },
-  //{ path: 'company', loadChildren: './company/company.module#CompanyPageModule' },
+  { path: 'company', loadChildren: './company/company.module#CompanyPageModule' },
   { path: 'employee', loadChildren: './employee/employee.module#EmployeePageModule' },
   { path: 'company-employee', loadChildren: './company-employee/company-employee.module#CompanyEmployeePageModule' },
   { path: 'c-login-register', loadChildren: './c-login-register/c-login-register.module#CLoginRegisterPageModule' },
