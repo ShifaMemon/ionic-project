@@ -10,23 +10,20 @@ export class CompanyRegistrationPage implements OnInit {
 
   employeeSizes = [];
 
-  comp_nm="";
+  c_name= "";
+  email = "";
+  address = "";
+  phone_no = "";
+  no_of_emp = "";
+  status = "Pending";
   password = "";
-  email ="";
-  comp_address = "";
-  comp_cno = "";
-  no_emp = "";
-  comp_status = "Pending";
-
-  registerations = [];
+  companies = [];
   
 
   constructor(private apiService : ApiService) { }
 
   ngOnInit() {
     this.getEmpSize()
-    this.doRegister()
-    
   }
 
   getEmpSize(){
@@ -40,18 +37,18 @@ export class CompanyRegistrationPage implements OnInit {
   {
         var data = 
         {
-          comp_nm : this.comp_nm,
-          password : this.password,
+          c_name : this. c_name,
           email : this.email,
-          comp_address : this.comp_address,
-          comp_cno : this.comp_cno,
-          no_emp : this.no_emp,
-          comp_status : this.comp_status,
+          address : this.address,
+          phone_no : this.phone_no,
+          no_of_emp : this.no_of_emp,
+          status : this.status,
+          password : this.password,
         }
    this.apiService.companyRegister(data).subscribe((res : any) =>
     {
       if(res.status){
-        this.registerations = res.data;
+        this.companies = res.data;
     }})
   }
 }

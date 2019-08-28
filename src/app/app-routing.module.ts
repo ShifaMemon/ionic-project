@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { 
-    path: 'client-selection', 
+    path: 'client-selection',
     loadChildren: './client-selection/client-selection.module#ClientSelectionPageModule' 
   },
   { path: 'company-login', 
@@ -16,17 +16,24 @@ const routes: Routes = [
   },
   { path: 'company-registration',
     loadChildren: './company-registration/company-registration.module#CompanyRegistrationPageModule' },
-/*  {
+ {
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
-  }, */
+  },
+  { 
+    path: 'employee-login', 
+    loadChildren: './employee-login/employee-login.module#EmployeeLoginPageModule' 
+  },
+  { 
+    path: 'employee-registration', 
+    loadChildren: './employee-registration/employee-registration.module#EmployeeRegistrationPageModule' 
+  },
   
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'company-login', loadChildren: './company-login/company-login.module#CompanyLoginPageModule' },
-  
   { path: 'employee-login', loadChildren: './employee-login/employee-login.module#EmployeeLoginPageModule' },
   { path: 'employee-registration', loadChildren: './employee-registration/employee-registration.module#EmployeeRegistrationPageModule' },
   { path: 'company', loadChildren: './company/company.module#CompanyPageModule' },

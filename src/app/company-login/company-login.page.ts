@@ -32,6 +32,7 @@ doLogin(){
   this.apiService.companyLogin(data).subscribe((res : any) => {
     if(res.status){
       this.login = res.data;
+      alert(this.email)
     }})
   }
 }

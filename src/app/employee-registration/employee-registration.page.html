@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content>
-		<form  #form="ngForm" (ngSubmit)="register(form)">
+
+		<form  #form="ngForm" method="POST">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -14,20 +15,47 @@
           </div>
           <div padding>
             <ion-item>
-              <ion-input  name="name" type="text" placeholder="Name" ngModel required></ion-input>
+              <ion-input  name="emp_nm" type="text" placeholder="Employee Name" [(ngModel)]="emp_nm" required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+              <ion-input name="emp_email" type="email" placeholder="your@email.com" [(ngModel)]="emp_email" required></ion-input>
             </ion-item>
-            <ion-item>
-              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+	         
+            <!-- <ion-item>
+            <ion-label>Company Id</ion-label>
+		        <ion-select name = "comp_id" value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)] = "comp_id" >
+		        <ion-select-option *ngFor = "let item of comp_id" [value]="item.id">{{item.size}}</ion-select-option>
+            </ion-select> 
+          </ion-item>-->
+          <ion-item>
+              <ion-input  name="emp_add" type="text" placeholder="Employee Address" [(ngModel)] = "emp_add" required></ion-input>
             </ion-item>
-            <ion-item>
-              <ion-input name="confirm" type="password" placeholder="Password again" ngModel required></ion-input>
+	        <ion-item>
+              <ion-input  name="emp_cno" type="text" placeholder="Employee Mobile Number" [(ngModel)] = "emp_cno" required></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Department Id</ion-label>
+              <ion-select name = "dept_id" value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)] = "dept_id" >
+              <ion-select-option *ngFor = "let item of comp_id" [value]="item.id">{{item.size}}</ion-select-option>
+              </ion-select>
             </ion-item>
+		<ion-item>
+        <ion-label>Employee Status</ion-label>
+      <ion-select name="emp_status">
+          
+        <ion-select-option value="pending">Pending</ion-select-option>
+        <ion-select-option value="approval">Approval</ion-select-option>
+        <ion-select-option value="reject">Reject</ion-select-option>
+      </ion-select>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-input name="emp_pass" type="password" placeholder="Employee Password" [(ngModel)]="emp_pass" required></ion-input>
+      </ion-item> -->
           </div>
           <div padding>
-            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block" (click)="register()">Register</ion-button>
+
+            <ion-button  size="large" type="submit" expand="block" (click)="doEmpRegister()" routerLink = "/company-deshboard">Register</ion-button>
+            <ion-button  size="large" type="submit" expand="block" routerLink = "/company-login">Login</ion-button>
           </div>
         </ion-col>
       </ion-row>

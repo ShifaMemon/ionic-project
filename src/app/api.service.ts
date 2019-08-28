@@ -8,16 +8,19 @@ const TOKEN_KEY = 'auth-token';
 })
 export class ApiService {
 
-  baseUrl = "http://localhost/temp/public/index.php/api/";
+  baseUrl = "http://localhost/survey_report/public/index.php/api/";
   constructor(
     private HttpClient : HttpClient,
     
   ) { }
 
   
-
+  deptId
   employeeCountList(){
     return this.HttpClient.get(this.baseUrl + "employeeCountList");
+  }
+  DeptId(){
+    return this.HttpClient.get(this.baseUrl + "deptId");
   }
   companyLogin(data)
   {
@@ -26,5 +29,9 @@ export class ApiService {
   companyRegister(data)
   {
     return this.HttpClient.post(this.baseUrl + "registration",data);
+  }
+  employeeRegister(data)
+  {
+    return this.HttpClient.post(this.baseUrl + "emp_register",data);
   }
 }

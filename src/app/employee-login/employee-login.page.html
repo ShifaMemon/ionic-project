@@ -6,24 +6,26 @@
 
 <ion-content>
 
-	<ion-list>
+	<h4 text-center margin-top>Login Company Dashboard</h4>
 
-        <ion-item>
-          <ion-label position="floating">Username</ion-label>
-          <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]="password"  type="password" value=""></ion-input>
-        </ion-item>
-      
-      </ion-list>
-      
-      <div padding>
-          <ion-button color="primary"  expand="full" (click)="login()">Login</ion-button>
-          <ion-button color="primary" routerLink="/register"  expand="full" href = "/register">Create New Account</ion-button>
-      </div>
+  <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" type="email" value=""></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="password"  type="password" value=""></ion-input>
+      </ion-item>
+    
+    </ion-list>
+    
+    <div padding>
+        <ion-button color="primary"  expand="full" (click)="login()" routerLink = "/company-deshboard">Login</ion-button>
+        <ion-button color="primary" routerLink="/company-registration"  expand="full" href = "/register">Create New Account</ion-button>
+    </div>
 
 
 </ion-content>
