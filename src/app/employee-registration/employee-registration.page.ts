@@ -10,12 +10,15 @@ export class EmployeeRegistrationPage implements OnInit {
   departments=[];
 
   e_name="";
+  password="";
   email="";
   address="";
   phone_no="";
   dept_id=";"
   status="";
-  password="";
+  company_id="";
+  d_id = "";
+  
 
   employees=[];
 
@@ -36,13 +39,16 @@ export class EmployeeRegistrationPage implements OnInit {
     {
           var data = 
           {
-            emp_nm : this. status,
-            emp_email : this.email,
-            emp_pass : this.address,
-            emp_cno : this.phone_no,
+            ename : this. status,
+            emp_pass : this.password,
+            email : this.email,
+            address : this.address,
+            phone_no : this.phone_no,
             dept_id : this.dept_id,
-            emp_status : this.status,
-           // emp_pass : this.password,
+            status : this.status,
+            company_id : this.company_id,
+            d_id : this.d_id,
+            
           }
      this.apiService.employeeRegister(data).subscribe((res : any) =>
       {

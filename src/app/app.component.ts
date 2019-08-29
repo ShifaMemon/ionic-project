@@ -44,7 +44,9 @@ export class AppComponent {
   ];
 
   isCompany = false;
+  isEmployee = false;
   enableMenu = true;
+  disableMenu = true;
 
   constructor(
     private platform: Platform,
@@ -63,11 +65,19 @@ export class AppComponent {
   
 
   getMenuList(){
-    if(this.isCompany){
+    
+    if(this.isCompany==false)
+    {
+      
       return this.employePages;
-    }else{
-      return this.companyPages;
     }
     
+  }
+  getMenuListEmp()
+  {
+    if(this.isEmployee)
+    {
+      return this.companyPages;
+    }
   }
 }
