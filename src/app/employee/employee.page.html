@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <h4 text-center margin-top><u>EMPLOYEE LOGIN</u></h4>
+
+  <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" type="email" value=""></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="password"  type="password" value=""></ion-input>
+      </ion-item>
+    
+    </ion-list>
+    
+    <div>
+        <ion-button color="primary"  expand="full" (click)="doLogin()">Login</ion-button>
+        <!-- <ion-button color="primary" routerLink="/company-registration"  expand="full" href = "/register">Create New Account</ion-button> -->
+    </div>
+
+</ion-content>

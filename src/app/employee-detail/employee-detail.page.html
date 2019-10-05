@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Employee_Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+ <!-- <table class="table" *ngIf="empDetail.e_name">
+    
+    
+    <tr>
+       <th class="th">Name</th>
+       <td>:</td>
+        <td class="td">{{empDetail.e_name}}</td>
+      </tr>
+      
+      <tr>
+         <th class="th">Email:</th>
+         <td>:</td>
+         <td class="td"> {{empDetail.email}}</td>
+      </tr>
+      <tr>
+         
+         <th class="th">Address:</th>
+         <td>:</td>
+         <td class="td">{{empDetail.address}}</td>
+      </tr>
+      <tr>
+         <th class="th">Phone Number:</th>
+         <td>:</td>
+        <td class="td">{{empDetail.phone_no}}</td>
+      </tr>
+      <tr>
+         <th class="th">Status:</th>
+         <td>:</td>
+         <td class="td">{{empDetail.status}}</td>
+      </tr>
+      <tr>
+        
+         <th class="th">Department Name:</th>
+         <td>:</td>
+         <td class="td">{{empDetail.department.d_name}}</td>
+      </tr>
+      <tr>
+        
+         <th class="th">Company Name:</th>
+         <td>:</td>
+         <td class="td">{{empDetail.department.company.c_name}}</td>
+      </tr> 
+   </table> -->
+   <ion-card *ngIf="empDetail.e_name">
+      <ion-item >
+         <h4>Name:</h4>&nbsp;&nbsp;&nbsp;
+         <h5>{{empDetail.e_name}}</h5>
+       </ion-item>
+       <ion-item >
+         <h4>Email:</h4>&nbsp;&nbsp;&nbsp;
+         <h5>{{empDetail.email}}</h5>
+       </ion-item>
+       <ion-item >
+         <h4>Address:</h4>&nbsp;&nbsp;&nbsp;
+         <h5>{{empDetail.address}}</h5>
+       </ion-item>
+       <ion-item >
+         <h4>Phone Number:</h4>&nbsp;&nbsp;&nbsp;
+         <h5>{{empDetail.phone_no}}</h5>
+       </ion-item>
+       <ion-item >
+         <h4>Status:</h4>&nbsp;&nbsp;&nbsp;
+         <h5>{{empDetail.status}}</h5>
+       </ion-item>
+       <ion-item >
+         <h4>Department Name:</h4>&nbsp;&nbsp;&nbsp;
+         <h5>{{empDetail.department.d_name}}</h5>
+       </ion-item>
+       <ion-item >
+         <h4>Company Name:</h4>&nbsp;&nbsp;&nbsp;
+         <h5>{{empDetail.department.company.c_name}}</h5>
+       </ion-item>
+   </ion-card>
+</ion-content>  
+
+ 
+  

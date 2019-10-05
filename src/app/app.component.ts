@@ -1,59 +1,47 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  public companyPages = [
+  
+  public emp = [
     {
-      title: 'Profile',
-      url: '/company-profile'
+      title: 'Employee_Detail',
+      url: '/employee-detail',
+      //icon: 'home'
     },
     {
-      title: 'Survey',
-      url: '/company-survey'
-    },{
-      title: 'Department',
-      url: '/company-department'
+      title: 'Employee_Survey',
+      url: '/employee-survey',
+      //icon: 'list'
     },
     {
-      title: 'Employees',
-      url: '/company-employees'
-    },
-    {
-      title: 'Feedback',
-      url: '/company-feedback'
-    }
-  ];
-  public employePages = [
-    {
-      title: 'E Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'E List',
-      url: '/list',
-      icon: 'list'
+      title: 'Survey_Detail',
+      url: 'survey-detail',
+      //icon: 'list'
     }
   ];
 
-  isCompany = false;
-  isEmployee = false;
-  enableMenu = true;
-  disableMenu = true;
+  isemp = false;
+  enable=true;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private router : Router,
+    private menu: MenuController
   ) {
     this.initializeApp();
+    this.getmenu();
   }
 
   initializeApp() {
@@ -62,22 +50,24 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
-  
 
-  getMenuList(){
-    
-    if(this.isCompany==false)
-    {
-      
-      return this.employePages;
-    }
-    
-  }
-  getMenuListEmp()
+  getmenu()
   {
-    if(this.isEmployee)
+    if(this.isemp)
     {
-      return this.companyPages;
+      alert("No menus here...!!!");
     }
+    else
+    {
+      return this.emp;
+    }
+  }
+
+  navigate(url){
+    this.menu.close('first');
+  }
+  logout(){
+      localStorage.clear();
+      this.router.navigateByUrl("/employee")
   }
 }

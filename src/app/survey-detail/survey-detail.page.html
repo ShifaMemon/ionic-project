@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <!-- survey_detail -->
+      {{surverInfo.name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <p>Hellooowwww this is survey_detail page</p> -->
+
+  <div *ngIf="currentQuestion.type == 'OpenEnded'">
+      <app-open-ended [question]="currentQuestion"></app-open-ended>
+  </div>
+  <div *ngIf="currentQuestion.type == 'OpenEndedMultiLine'">
+      <app-open-ended-multiline [question]="currentQuestion">
+        
+      </app-open-ended-multiline>
+  </div>
+  <div *ngIf="currentQuestion.type == 'MultiChoise'">
+      <app-multi-choise [question]="currentQuestion"></app-multi-choise>
+
+  </div>
+  <div *ngIf="currentQuestion.type == 'Choise'">
+      <app-choise [question]="currentQuestion"></app-choise>
+
+  </div>
+
+  <div *ngIf="currentQuestion.type == 'MultiChoiseSelect'">
+      <app-multi-choise-select [question]="currentQuestion"></app-multi-choise-select>
+    </div>
+    <div *ngIf="currentQuestion.type == 'ChoiseSelect'">
+        <app-choise-select [question]="currentQuestion"></app-choise-select>
+    </div> 
+
+    <div>
+        <ion-button name="pre" color="primary" (click)="changePage(-1)" >Previous</ion-button>
+        <ion-button name="nxt" color="primary" (click)="changePage(1)">Next</ion-button>
+    </div>
+    <div>
+       <ion-button type="submit" expand="full" color="danger" routerLink="/employee-detail">Back to Home</ion-button>
+    </div>
+</ion-content>
