@@ -32,16 +32,21 @@
       <ion-label>
         <h1>Survey Tile</h1>
       </ion-label>
-      <ion-label>
+      <ion-label class="ion-text-right" >
         <h1>Action</h1>
       </ion-label>
     </ion-item>	
-    <ion-item  *ngFor="let item of surveyDetail.company.surveys">
+    <ion-item  *ngFor="let item of surveyDetail.company.surveys" >
       <ion-label>{{item.survey_title}}</ion-label>
+      <ion-item>
+        <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright" routrLink="/survey-detail" (click)="clicked = 'star ' + i"></ion-icon>
+      </ion-item>
     </ion-item>
   </ion-card>
 </ion-list>
-
- 
-
 </ion-content>
+<!-- 
+<button ion-button icon-left clear small>
+    <ion-icon name="text"></ion-icon>
+    <div>4 Comments</div>
+  </button> -->
