@@ -59,9 +59,9 @@ export class AuthServiceService
   {
     return this.httpClient.get(this.baseUrl + "surveyDetail/"+id);
   }
-  // fetchSurveyId(id)
-  // {
-  //   return this.httpClient.get(this.baseUrl + "survey_id/"+id);
-  // }
+  SurveyQId(id)
+  {
+    return this.httpClient.get(this.baseUrl + "surveyQ_id/"+id);
+  }
 
 }

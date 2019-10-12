@@ -51,12 +51,12 @@
          <td class="td">{{empDetail.department.company.c_name}}</td>
       </tr> 
    </table> -->
-   <ion-card *ngIf="empDetail.e_name">
-      <ion-item >
+   <ion-card *ngIf="empDetail.e_name" class="ion-card">
+      <ion-item>
          <h4>Name:</h4>&nbsp;&nbsp;&nbsp;
          <h5>{{empDetail.e_name}}</h5>
        </ion-item>
-       <ion-item >
+       <ion-item>
          <h4>Email:</h4>&nbsp;&nbsp;&nbsp;
          <h5>{{empDetail.email}}</h5>
        </ion-item>
