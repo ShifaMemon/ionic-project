@@ -14,7 +14,8 @@ import { AuthServiceService } from './auth-service.service';
 import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,

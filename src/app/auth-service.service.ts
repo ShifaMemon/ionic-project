@@ -8,7 +8,7 @@ const TOKEN_KEY = 'auth-token';
 })
 export class AuthServiceService
 {
-  baseUrl = "http://localhost/survey-report/public/index.php/api/";
+  baseUrl = "http://192.168.0.103/sur/public/index.php/api/";
 
   constructor(private httpClient : HttpClient) 
   { 
@@ -61,7 +61,11 @@ export class AuthServiceService
   }
   SurveyQId(id)
   {
-    return this.httpClient.get(this.baseUrl + "surveyQ_id/"+id);
+    return this.httpClient.get(this.baseUrl + "survey_id/"+id);
+  }
+  saveFormData(data)
+  {
+    return this.httpClient.post(this.baseUrl + "save_answer", data);
   }
 
 }

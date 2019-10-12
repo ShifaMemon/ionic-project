@@ -2,42 +2,35 @@
   <ion-toolbar>
     <ion-title>
       <!-- survey_detail -->
-      {{surverInfo.name}}
+      {{surveyDetail.survey_title}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="this.surveyDetail.questions">
 
   <!-- <p>Hellooowwww this is survey_detail page</p> -->
 
-  <div *ngIf="currentQuestion.type == 'OpenEnded'">
+  <div *ngIf="currentQuestion.q_type == 'open ended'">
       <app-open-ended [question]="currentQuestion"></app-open-ended>
   </div>
-  <div *ngIf="currentQuestion.type == 'OpenEndedMultiLine'">
+  <div *ngIf="currentQuestion.q_type == 'multiline_open_ended'">
       <app-open-ended-multiline [question]="currentQuestion">
         
       </app-open-ended-multiline>
   </div>
-  <div *ngIf="currentQuestion.type == 'MultiChoise'">
+  <div *ngIf="currentQuestion.q_type == 'checkbox'">
       <app-multi-choise [question]="currentQuestion"></app-multi-choise>
 
   </div>
-  <div *ngIf="currentQuestion.type == 'Choise'">
-      <app-choise [question]="currentQuestion"></app-choise>
-
-  </div>
-
-  <div *ngIf="currentQuestion.type == 'MultiChoiseSelect'">
-      <app-multi-choise-select [question]="currentQuestion"></app-multi-choise-select>
-    </div>
-    <div *ngIf="currentQuestion.type == 'ChoiseSelect'">
+    <div *ngIf="currentQuestion.q_type == 'selection'">
         <app-choise-select [question]="currentQuestion"></app-choise-select>
     </div> 
 
     <div>
         <ion-button name="pre" color="primary" (click)="changePage(-1)" >Previous</ion-button>
-        <ion-button name="nxt" color="primary" (click)="changePage(1)">Next</ion-button>
+        <ion-button name="nxt" color="primary" *ngIf="currentQuestionNumber != this.surveyDetail.questions.length -1 " (click)="changePage(1)">Next</ion-button>
+        <ion-button name="nxt" color="primary" *ngIf="currentQuestionNumber == this.surveyDetail.questions.length -1 " (click)="finish()">Submit</ion-button>
     </div>
     <div>
        <ion-button type="submit" expand="full" color="danger" routerLink="/employee-detail">Back to Home</ion-button>

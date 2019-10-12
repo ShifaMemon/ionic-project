@@ -1,6 +1,4 @@
 <p>
-  choise-select works!
-  
   <ion-list>
       <ion-list-header></ion-list-header>
     
@@ -14,11 +12,8 @@
     
       <ion-item>
         <ion-label><b>{{question.title}}</b></ion-label>
-        <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-          <ion-select-option value="brown">Brown</ion-select-option>
-          <ion-select-option value="blonde">Blonde</ion-select-option>
-          <ion-select-option value="black">Black</ion-select-option>
-          <ion-select-option value="red">Red</ion-select-option>
+        <ion-select [(ngModel)]="question.answer"  okText="Okay" cancelText="Dismiss">
+          <ion-select-option *ngFor="let item of question.option" [value]="item">{{item}}</ion-select-option>
         </ion-select>
       </ion-item>
     

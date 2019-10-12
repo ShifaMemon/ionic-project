@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { QuestionTypeModule } from './question-type/question-type';
 
 const routes: Routes = [
   {
@@ -18,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   { path: 'employee-survey', loadChildren: './employee-survey/employee-survey.module#EmployeeSurveyPageModule' },
-  { path: 'survey-detail', loadChildren: './survey-detail/survey-detail.module#SurveyDetailPageModule' },
+  { path: 'survey-detail/:id', loadChildren: './survey-detail/survey-detail.module#SurveyDetailPageModule' },
   { path: 'employee-detail', loadChildren: './employee-detail/employee-detail.module#EmployeeDetailPageModule' }  
 ];
 

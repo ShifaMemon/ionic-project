@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -12,39 +13,46 @@ export class SurveyDetailPage implements OnInit {
   surverInfo : any = {};
   currentQuestionNumber = 0;
   currentQuestion :  any  = {};
-  surveyDetail: any;
+  surveyDetail: any = {};
   id;
-  constructor( private auService : AuthServiceService) { }
+  sId;
+  constructor( private auService : AuthServiceService, private route: Router, private activeRoute : ActivatedRoute) {
+    
+   }
 
   ngOnInit() {
-    var data = {}
-    this.surverInfo =  this.auService.getSurveyDetail(data);   
-    this.currentQuestion = this.surverInfo.questions[this.currentQuestionNumber];
-    this.id = localStorage.getItem('userId');
-    //this.getEDetail();
-    this.getSid();
+
+    this.activeRoute.params.subscribe((res) => {
+      this.sId = res['id'];
+      this.getSid();
+    })
     
-  }
+    var data = {}
+    this.id = localStorage.getItem('userId');
+ }
 
   changePage(value){
     this.currentQuestionNumber += value;
-    this.currentQuestion = this.surverInfo.questions[this.currentQuestionNumber];
+  
+    this.currentQuestion = this.surveyDetail.questions[this.currentQuestionNumber];
   }
 
-  // getEDetail(){
-  //   this.auService.getSurDetail(this.id).subscribe((res : any) => {
-  //       if(res.status){
-  //         this.surveyDetail = res.data;
-  //       }
-  //   })
-  // }
-
   getSid(){
-    this.auService.SurveyQId(this.id).subscribe((res : any) => {
+    this.auService.SurveyQId(this.sId).subscribe((res : any) => {
         if(res.status){
-          this.surveyDetail = res.data;
+          this.surveyDetail = res.data;          
+          this.currentQuestion = this.surveyDetail.questions[0];
         }
     })
   }
-
+  finish(){
+    
+    var opti = {
+      userId : this.id,
+      question : this.surveyDetail.questions
+    }
+    this.auService.saveFormData(opti).subscribe((res : any) => {
+      this.route.navigateByUrl("/employee-survey");  
+    })
+  }
 }

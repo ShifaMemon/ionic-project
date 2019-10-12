@@ -38,7 +38,7 @@
     <ion-item  *ngFor="let item of surveyDetail.company.surveys" >
       <ion-label>{{item.survey_title}}</ion-label>
       <button>
-        <ion-icon name="fastforward" routerLink="/survey-detail"></ion-icon>
+        <ion-icon name="fastforward" [routerLink]="['/survey-detail', item.id]"></ion-icon>
         <!-- <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright" routrLink="/survey-detail" (click)="clicked = 'star ' + i"></ion-icon> -->
       </button>
     </ion-item>
